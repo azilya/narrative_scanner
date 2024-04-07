@@ -1,6 +1,8 @@
+import os
+
 from openai import OpenAI
 
-API_TOKEN = ""
+API_TOKEN = os.environ.get("OPENAPI_TOKEN")
 ORG_ID = ""
 
 PROMPT = """
