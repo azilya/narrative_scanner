@@ -16,15 +16,15 @@ def hello():
     return "Hello"
 
 
-@app.post("/narrative_scanner")
-def narrative_scanner(posts: str = Form(), question: str = Form()):
-    inputs = posts.split("\n\n")
-    model = NarrativeModel(inputs)
-    reply = model.generate(question)
-    return reply
-
-
 @app.get("/")
 @app.get("/form", response_class=HTMLResponse)
 def main(request: Request):
     return templates.TemplateResponse("form.html", {"request": request})
+
+
+@app.post("/form", response_class=HTMLResponse)
+def main(request: Request, posts: str = Form(), question: str = Form()):
+    inputs = posts.split("\n\n")
+    model = NarrativeModel(inputs)
+    reply = model.generate(question)
+    return templates.TemplateResponse("form.html", {"request": request, "reply": reply})

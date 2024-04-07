@@ -6,13 +6,15 @@
    </head>
    <body>
       <h1>Ask The Scanner</h1>
-      <form method="post" action="/narrative_scanner">
+      <form method="post">
          <label for="posts">Posts to form a narrative from:</label><br>
          <textarea id="posts" name="posts" rows="4" cols="50"></textarea>
          <br>
          <label for="question">Question to ask the scanner:</label><br>
-         <textarea id="question" name="question" rows="4" cols="50"></textarea>
+         <textarea id="question" name="question" rows="4" cols="50"></textarea><br>
          <input class="submit" type="submit" value="Submit">
       </form>
+      <h2>Scanner's reply</h2>
+      <textarea id="reply" name="reply" rows="3" cols="60" readonly>{{ reply }}</textarea>
    </body>
 </html>
