@@ -20,7 +20,7 @@ def narrative_scanner(posts: str = Form(), question: str = Form()):
 
 
 @app.get("/")
-@app.get("/form", response_class=HTMLResponse)
+# @app.get("/form", response_class=HTMLResponse)
 def main(request: Request):
     return templates.TemplateResponse("form.html", {"request": request})
 
