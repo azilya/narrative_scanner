@@ -19,9 +19,10 @@ def narrative_scanner(posts: str = Form(), question: str = Form()):
     return reply
 
 
-@app.get("/")
-# @app.get("/form", response_class=HTMLResponse)
-def main(request: Request):
+# @app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
+def root(request: Request):
+    # TODO: keep model state between requests. Add IDs to pass to form and select model by it?
     return templates.TemplateResponse("form.html", {"request": request})
 
 
